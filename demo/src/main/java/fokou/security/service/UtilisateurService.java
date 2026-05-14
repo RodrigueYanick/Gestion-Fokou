@@ -100,22 +100,27 @@ public class UtilisateurService {
         } else {
             u.setMagasin(null);
         }
+        
         return mapToDTO(utilisateurRepository.save(u));
     }
 
     public void supprimer(Long id) {
         if (!utilisateurRepository.existsById(id)) throw new RuntimeException("Utilisateur introuvable");
+        
         utilisateurRepository.deleteById(id);
     }
 
     public List<UtilisateurDTO> listerInactifs() {
+       
         return utilisateurRepository.findAllInactifs().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
     public void restaurer(Long id) {
+
         if (utilisateurRepository.countByIdInactif(id) == 0)  {
             throw new RuntimeException("Utilisateur introuvable parmi les éléments supprimés");
         }
         utilisateurRepository.restaurer(id);
+
     }
 }
