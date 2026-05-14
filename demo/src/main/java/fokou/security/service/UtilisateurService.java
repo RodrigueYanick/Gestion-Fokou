@@ -113,7 +113,7 @@ public class UtilisateurService {
     }
 
     public void restaurer(Long id) {
-        if (utilisateurRepository.countByIdInactif(id) == 0) {
+        if (utilisateurRepository.countByIdInactif(id) == 0)  {
             throw new RuntimeException("Utilisateur introuvable parmi les éléments supprimés");
         }
         utilisateurRepository.restaurer(id);
