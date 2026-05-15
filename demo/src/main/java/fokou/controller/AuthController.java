@@ -25,16 +25,21 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
 
+
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getLogin(),
                         loginRequest.getMotDePasse()
                 )
         );
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = tokenProvider.generateToken(authentication);
+        SecurityContextHolder
+        .getContext().
+        setAuthentication(authentication);
+        String jwt = tokenProvider
+        .generateToken(authentication);
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         List<String> roles = userPrincipal.getAuthorities().stream()
                 .map(item -> item.getAuthority())
@@ -45,5 +50,6 @@ public class AuthController {
                 .login(userPrincipal.getUsername())
                 .roles(roles)
                 .build());
+                
     }
 }

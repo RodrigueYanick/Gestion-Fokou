@@ -21,25 +21,32 @@ public class UtilisateurController {
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<UtilisateurDTO>> lister() {
-        return ResponseEntity.ok(utilisateurService.lister());
+        return ResponseEntity
+        .ok(utilisateurService.lister());
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+
     public ResponseEntity<UtilisateurDTO> creer(@Valid @RequestBody UtilisateurDTO dto) {
-        return ResponseEntity.ok(utilisateurService.creer(dto));
+        
+        return ResponseEntity
+        .ok(utilisateurService.creer(dto));
+
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UtilisateurDTO> consulter(@PathVariable Long id) {
-        return ResponseEntity.ok(utilisateurService.consulter(id));
+        return ResponseEntity
+        .ok(utilisateurService.consulter(id));
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UtilisateurDTO> modifier(@PathVariable Long id, @Valid @RequestBody UtilisateurDTO dto) {
-        return ResponseEntity.ok(utilisateurService.modifier(id, dto));
+        return ResponseEntity
+        .ok(utilisateurService.modifier(id, dto));
     }
 
     @DeleteMapping("/{id}")

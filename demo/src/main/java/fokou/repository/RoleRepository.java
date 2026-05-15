@@ -7,5 +7,7 @@ import fokou.entity.Role;
 import java.util.Optional;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
+
     Optional<Role> findByNomRole(String nomRole);
+    
 }
