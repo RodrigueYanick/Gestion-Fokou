@@ -19,4 +19,5 @@ public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> 
 
     @Query(value = "SELECT COUNT(*) FROM fournisseur WHERE id = :id AND actif = false", nativeQuery = true)
     int countByIdInactif(@Param("id") Long id);
+    
 }
