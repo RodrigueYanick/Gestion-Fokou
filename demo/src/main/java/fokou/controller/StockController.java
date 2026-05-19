@@ -32,6 +32,7 @@ public class StockController {
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('GESTIONNAIRE') or hasRole('STOCK')")
     public ResponseEntity<StockDTO> consulter(@PathVariable Long id) {
-        return ResponseEntity.ok(stockService.consulter(id));
+        return ResponseEntity
+        .ok(stockService.consulter(id));
     }
 }
