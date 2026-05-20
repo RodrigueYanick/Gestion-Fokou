@@ -21,9 +21,13 @@ import java.util.*;
 public class Vente {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private LocalDateTime dateVente;
+
     private double montantTotal;
+
     private String modePaiement;
+
     private String statutVente; // VALIDEE, ANNULEE
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -40,6 +44,7 @@ public class Vente {
     @JoinColumn(name = "magasin_id")
     @JsonIgnore @ToString.Exclude
     private Magasin magasin;
+
 
     @OneToMany(mappedBy = "vente", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
