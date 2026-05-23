@@ -12,8 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/mouvements-stock")
+
 @RequiredArgsConstructor
 public class MouvementStockController {
+    
 
     private final MouvementStockRepository mouvementStockRepository;
 
