@@ -18,7 +18,7 @@ import java.util.List;
 public class MouvementStockController {
 
 
-    private final MouvementStockRepository  mouvementStockRepository;
+    private final MouvementStockRepository mouvementStockRepository;
 
     @GetMapping("/produit/{produitId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('GESTIONNAIRE') or hasRole('STOCK')")
